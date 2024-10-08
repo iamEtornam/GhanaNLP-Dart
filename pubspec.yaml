@@ -1,0 +1,19 @@
+name: ghana_npl_dart
+description: A Dart package for the GhanaNLP API
+version: 1.0.0
+repository: https://github.com/iamEtornam/GhanaNLP-Dart.git
+
+environment:
+  sdk: ^3.5.3
+
+# Add regular dependencies here.
+dependencies:
+  http: ^1.2.2
+  # path: ^1.8.0
+
+dev_dependencies:
+  lints: ^4.0.0
+  test: ^1.24.0
+  http_mock_adapter:
+  mockito: ^5.4.4
+  build_runner: ^2.4.13
