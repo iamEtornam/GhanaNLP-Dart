@@ -1,6 +1,6 @@
 # GhanaNLP Dart Package
 
-This Dart package provides a client for the GhanaNLP API, including Automatic Speech Recognition (ASR) and Text-To-Speech (TTS) functionalities. It allows you to easily transcribe audio and synthesize speech in various Ghanaian and African languages.
+This Dart package provides a client for the GhanaNLP API, including Automatic Speech Recognition (ASR) and Text-To-Speech (TTS) functionalities. It allows you to easily transcribe audio and synthesize speech in various Ghanaian and African languages. Get API KEY at [https://translation.ghananlp.org](https://translation.ghananlp.org/)
 
 ## Supported Languages
 
@@ -73,7 +73,7 @@ void main() async {
     print('Error: $e');
   }
 }
-``
+```
 
 ### Text-To-Speech (TTS)
 
@@ -207,4 +207,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License - see the [LICENSE](LICENSE) file for details.
