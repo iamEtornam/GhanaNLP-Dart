@@ -5,7 +5,6 @@ This Dart package provides a client for the GhanaNLP API, including Automatic Sp
 ## Supported Languages
 
 - Twi (tw)
-- Yoruba (yo)
 - Ga (gaa)
 - Dagbani (dag)
 - Ewe (ee)
@@ -19,8 +18,8 @@ Add this package to your project's `pubspec.yaml` file:
 dependencies:
   ghana_nlp_dart:
     git:
-      url: https://github.com/yourusername/ghana_nlp_dart.git
-      ref: main  # or use a specific tag/commit
+      url: https://github.com/iamEtornam/GhanaNLP-Dart.git
+      ref: main
 ```
 
 Then run:
@@ -74,7 +73,37 @@ void main() async {
     print('Error: $e');
   }
 }
+``
+
+### Text-To-Speech (TTS)
+
+```dart
+import 'package:ghana_nlp_dart/ghana_nlp_dart.dart';
+
+void main() async {
+  final api = GhanaNLPTranslationAPI(apiKey: 'your_api_key_here');
+
+  // Translate text
+  try {
+    final translatedText = await api.translate(
+      text: 'Hello, how are you?',
+      languagePair: 'en-tw',
+    );
+    print('Translated text: $translatedText');
+  } catch (e) {
+    print('Translation error: $e');
+  }
+
+  // Get supported languages
+  try {
+    final languages = await api.getLanguages();
+    print('Supported languages: $languages');
+  } catch (e) {
+    print('Error fetching languages: $e');
+  }
+}
 ```
+
 
 ## API Reference
 
@@ -117,6 +146,30 @@ Synthesizes speech from the given text in the specified language.
 
 Returns a `Future<List<int>>` containing the audio data as bytes.
 
+
+### `GhanaNLPTranslation`
+
+The class for interacting with the GhanaNLP Translation REST API.
+
+#### Constructor
+
+```dart
+GhanaNLPTranslation({required String apiKey, http.Client? client})
+```
+
+#### Methods
+
+```dart
+Future<String> translate({required String text, required String languagePair})
+```
+
+Synthesizes speech from the given text in the specified language.
+
+- `text`: The text to be converted to speech.
+- `languagePair`: The language code (e.g., 'tw' for Twi).
+
+Returns a `Future<String>` which is the translation.
+
 ### `Language`
 
 An enum representing the supported languages.
@@ -133,6 +186,7 @@ enum Language {
 ```
 
 Use `Language.fromCode(String code)` to get the enum value from a language code string.
+
 
 ## Error Handling
 
